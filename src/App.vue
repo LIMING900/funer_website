@@ -23,6 +23,13 @@
           <router-link to="/" class="text-decoration-none d-flex align-center">
             <v-toolbar-title class="company-title">
               <div class="d-flex align-center">
+                <!-- <v-img
+                  :src="require('@/assets/companyTitle.jpg')"
+                  max-height="50"
+                  max-width="50"
+                  contain
+                  class="mr-4 company-logo"
+                ></v-img> -->
                 <div class="company-name-group">
                   <span class="font-weight-bold company-name">
                     <span class="company-name-first">Andy</span>
@@ -63,9 +70,11 @@
               <v-icon left>mdi-phone</v-icon>
               Contact Us
             </v-btn>
-
-            <!-- 用户未登录时显示登录按钮 -->
-            <template v-if="!user">
+          </div>
+        </div>
+      </v-container>
+                  <!-- 用户未登录时显示登录按钮 -->
+                  <template v-if="!user">
               <v-btn
                 color="primary"
                 class="ml-4 auth-btn"
@@ -116,50 +125,7 @@
                 </v-list>
               </v-menu>
             </template>
-          </div>
-        </div>
-      </v-container>
     </v-app-bar>
-
-    <!-- 移动端导航抽屉 -->
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      temporary
-      right
-      width="280"
-    >
-      <v-list>
-        <v-list-item
-          v-for="item in menuItems"
-          :key="item.path"
-          :to="item.path"
-          exact
-          class="mobile-nav-item"
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>{{ item.text }}</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-
-        <v-divider class="my-4"></v-divider>
-
-        <v-list-item
-          @click="showContactMenu = true"
-          class="mobile-contact-btn"
-        >
-          <v-list-item-icon>
-            <v-icon color="accent">mdi-phone</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>Contact Us</v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
 
     <!-- 主内容区 -->
     <v-main class="main-background">
@@ -390,7 +356,6 @@ export default {
   name: 'App',
   data: () => ({
     user: null,
-    drawer: false,
     menuItems: [
       { text: 'Home', path: '/', exact: true, icon: 'mdi-home' },
       { text: 'Packages', path: '/packages', exact: false, icon: 'mdi-package-variant' },
@@ -738,19 +703,12 @@ export default {
 
 @media (max-width: 600px) {
   .company-name {
-    font-size: 1.8rem !important;
+    font-size: 1.5rem !important;
+    gap: 4px;
   }
-
-  .nav-link {
-    min-width: 60px !important;
-  }
-
-  .nav-link .v-icon {
-    font-size: 18px !important;
-  }
-
-  .nav-link span {
-    font-size: 0.7rem !important;
+  
+  .company-tagline {
+    font-size: 0.8rem;
   }
 }
 
@@ -926,210 +884,5 @@ export default {
 
 .privacy-content a:hover {
   text-decoration: underline;
-}
-
-/* 移动端导航样式 */
-.mobile-menu-btn {
-  display: none !important;
-}
-
-.desktop-nav {
-  display: flex;
-}
-
-.mobile-nav-item {
-  height: 56px;
-  transition: all 0.3s ease;
-}
-
-.mobile-nav-item:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-}
-
-.mobile-contact-btn {
-  background-color: var(--v-accent-base) !important;
-  color: white !important;
-  border-radius: 8px;
-  margin: 8px 16px;
-}
-
-.mobile-contact-btn .v-list-item__title {
-  color: white !important;
-}
-
-@media (max-width: 960px) {
-  .desktop-nav {
-    display: none !important;
-  }
-
-  .mobile-menu-btn {
-    display: flex !important;
-  }
-
-  .nav-bar .v-container {
-    padding: 8px 16px;
-  }
-
-  .company-name {
-    font-size: 1.6rem !important;
-  }
-
-  .company-tagline {
-    font-size: 0.85rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .company-name {
-    font-size: 1.4rem !important;
-  }
-}
-
-/* 移动端适配样式 */
-@media (max-width: 960px) {
-  /* 顶部联系信息栏样式 */
-  .v-system-bar {
-    height: auto !important;
-    padding: 8px 16px !important;
-  }
-
-  .v-system-bar .v-system-bar__content {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-  }
-
-  .v-system-bar .text-caption {
-    font-size: 0.75rem !important;
-  }
-
-  .v-system-bar .v-icon {
-    font-size: 16px !important;
-  }
-
-  /* 导航栏样式 */
-  .nav-bar {
-    height: auto !important;
-    padding: 8px 0;
-  }
-
-  .nav-bar .v-container {
-    padding: 8px 16px;
-  }
-
-  .company-name {
-    font-size: 1.8rem !important;
-    gap: 4px;
-  }
-
-  .company-tagline {
-    font-size: 0.85rem;
-  }
-
-  .nav-menu {
-    width: 100%;
-    margin-top: 12px;
-  }
-
-  .nav-link {
-    height: 48px !important;
-    min-width: 70px !important;
-    padding: 0 8px !important;
-  }
-
-  .nav-link .v-icon {
-    font-size: 20px !important;
-    margin-bottom: 2px !important;
-  }
-
-  .nav-link span {
-    font-size: 0.8rem !important;
-  }
-
-  .contact-btn {
-    height: 40px !important;
-    padding: 0 16px !important;
-    font-size: 0.9rem !important;
-    margin-top: 12px;
-  }
-
-  .contact-btn .v-icon {
-    font-size: 20px !important;
-  }
-}
-
-/* iPhone 15 Pro Max 等现代手机适配 */
-@media (max-width: 430px) {
-  .company-name {
-    font-size: 1.6rem !important;
-  }
-
-  .company-tagline {
-    font-size: 0.8rem;
-  }
-
-  .nav-link {
-    min-width: 60px !important;
-    padding: 0 6px !important;
-  }
-
-  .nav-link .v-icon {
-    font-size: 18px !important;
-  }
-
-  .nav-link span {
-    font-size: 0.75rem !important;
-  }
-
-  .contact-btn {
-    height: 36px !important;
-    padding: 0 12px !important;
-    font-size: 0.85rem !important;
-  }
-
-  .contact-btn .v-icon {
-    font-size: 18px !important;
-  }
-
-  /* 优化顶部联系信息栏 */
-  .v-system-bar {
-    padding: 6px 12px !important;
-  }
-
-  .v-system-bar .text-caption {
-    font-size: 0.7rem !important;
-  }
-
-  .v-system-bar .v-icon {
-    font-size: 14px !important;
-  }
-
-  /* 优化导航菜单布局 */
-  .nav-menu .v-tabs {
-    display: flex;
-    justify-content: space-around;
-  }
-
-  .nav-link {
-    flex: 1;
-    text-align: center;
-  }
-}
-
-/* 确保内容区域在移动端有合适的边距 */
-.v-main {
-  padding-top: 16px !important;
-}
-
-/* 优化移动端触摸区域 */
-.nav-link,
-.contact-btn,
-.social-btn {
-  min-height: 44px !important; /* 符合 iOS 最小触摸区域要求 */
-}
-
-/* 优化移动端滚动体验 */
-.v-main {
-  -webkit-overflow-scrolling: touch;
 }
 </style> 
