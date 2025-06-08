@@ -153,9 +153,18 @@
           <v-btn text @click="dialog = false">Close</v-btn>
           <v-btn
             color="primary"
-            @click="requestConsultation(selectedPackage)"
+            class="mr-2"
+            @click="makePhoneCall"
           >
-            Request Consultation
+            <v-icon left>mdi-phone</v-icon>
+            Call Us
+          </v-btn>
+          <v-btn
+            color="success"
+            @click="openWhatsApp"
+          >
+            <v-icon left>mdi-whatsapp</v-icon>
+            WhatsApp
           </v-btn>
         </v-card-actions>
       </v-card>
@@ -174,16 +183,16 @@ export default {
     activeTab: 0,
     dialog: false,
     selectedPackage: null,
-    categories: ['All Packages', 'Casket Services', 'Urns', 'Transportation'],
+    categories: ['All Packages', 'Casket Services'],
     packages: [
       {
         id: 1,
         name: 'Essential Package',
-        price: 2888,
+        // price: 2888,
         category: 'Casket Services',
         image: require('@/assets/funer3.jpg') || 'https://picsum.photos/500/300?random=1',
         description: 'Basic funeral service package with essential items',
-        popular: false,
+        popular: true,
         features: [
           'Standard Casket',
           'Basic Funeral Setup',
@@ -195,11 +204,11 @@ export default {
       {
         id: 2,
         name: 'Taoist Package',
-        price: 6888,
+        // price: 6888,
         category: 'Casket Services',
-        image: require('@/assets/funer4.jpg') || 'https://picsum.photos/500/300?random=2',
+        image: require('@/assets/funer5.jpg') || 'https://picsum.photos/500/300?random=2',
         description: 'Comprehensive funeral service package with premium features',
-        popular: true,
+        popular: false,
         features: [
           'Premium Quality Casket',
           'Complete Funeral Setup',
@@ -210,8 +219,62 @@ export default {
           'Photography Service'
         ]
       },
-      // 添加更多套餐...
-    ]
+      {
+        id: 3,
+        name: 'Buddhist Package',
+        // price: 5888,
+        category: 'Casket Services',
+        image: require('@/assets/funer6.jpg') || 'https://picsum.photos/500/300?random=3',
+        description: 'Traditional Buddhist funeral service package',
+        popular: false,
+        features: [
+          'Premium Quality Casket',
+          'Buddhist Ceremony Setup',
+          'Monk Services',
+          '3 Days Service Duration',
+          'Buddhist Religious Items',
+          'Professional Funeral Director',
+          'Photography Service'
+        ]
+      },
+      {
+        id: 4,
+        name: 'Catholic Package',
+        // price: 4888,
+        category: 'Casket Services',
+        image: require('@/assets/funer4.jpg') || 'https://picsum.photos/500/300?random=4',
+        description: 'Traditional Catholic funeral service package',
+        popular: false,
+        features: [
+          'Premium Quality Casket',
+          'Catholic Ceremony Setup',
+          'Priest Services',
+          '2 Days Service Duration',
+          'Catholic Religious Items',
+          'Professional Funeral Director',
+          'Photography Service'
+        ]
+      },
+      {
+        id: 5,
+        name: 'Free-thinker Package',
+        // price: 3888,
+        category: 'Casket Services',
+        // image: require('@/assets/gallery/freethinker.jpg') || 'https://picsum.photos/500/300?random=5',
+        description: 'Customizable funeral service package for free-thinkers',
+        popular: false,
+        features: [
+          'Standard Quality Casket',
+          'Custom Ceremony Setup',
+          'Flexible Service Duration',
+          'Basic Religious Items (Optional)',
+          'Professional Funeral Director',
+          'Photography Service'
+        ]
+      }
+    ],
+    phoneNumber: '+6588005559',
+    whatsappNumber: '+6588005559',
   }),
   computed: {
     filteredPackages() {
@@ -233,6 +296,12 @@ export default {
           scroll: 'consultation'
         } 
       });
+    },
+    makePhoneCall() {
+      window.location.href = `tel:${this.phoneNumber}`
+    },
+    openWhatsApp() {
+      window.open(`https://wa.me/${this.whatsappNumber}`, '_blank')
     }
   },
   async created() {
@@ -243,9 +312,9 @@ export default {
       if (response.data) {
         this.packages = response.data;
       }
-    } catch (error) {
-      console.error('获取套餐信息失败:', error);
-      this.error = '无法加载套餐信息，请稍后再试';
+    // } catch (error) {
+    //   console.error('获取套餐信息失败:', error);
+    //   this.error = '无法加载套餐信息，请稍后再试';
     } finally {
       this.loading = false;
     }
@@ -282,6 +351,18 @@ export default {
   overflow: hidden;
   transition: all 0.3s ease;
   position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.package-card .v-card__text {
+  flex-grow: 1;
+}
+
+.package-card .v-card__actions {
+  margin-top: auto;
+  padding: 16px;
+  background: rgba(0,0,0,0.02);
 }
 
 .package-card.on-hover {
@@ -321,5 +402,12 @@ export default {
 
 .v-overlay {
   z-index: 5;
+}
+
+.package-image {
+  object-fit: cover;
+  aspect-ratio: 16/9;
+  min-height: 250px;
+  max-height: 250px;
 }
 </style> 

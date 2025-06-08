@@ -281,19 +281,19 @@ export default {
       { text: 'Home', path: '/', exact: true, icon: 'mdi-home' },
       { text: 'Packages', path: '/packages', exact: false, icon: 'mdi-package-variant' },
       { text: 'E-namecard', path: '/agent', exact: false, icon: 'mdi-card-account-details' },
-      { text: 'Sample display', path: '/gallery', exact: false, icon: 'mdi-image-multiple' }
+      // { text: 'Sample display', path: '/gallery', exact: false, icon: 'mdi-image-multiple' }
     ],
     quickLinks: [
       { text: 'Home', to: '/' },
       { text: 'Our Packages', to: '/packages' },
       { text: 'Contact Agent', to: '/agent' },
-      { text: 'Gallery', to: '/gallery' }
+      // { text: 'Gallery', to: '/gallery' }
     ],
     socialLinks: [
       { icon: 'mdi-facebook', link: 'https://facebook.com', class: 'facebook-btn' },
       { icon: 'mdi-instagram', link: 'https://instagram.com', class: 'instagram-btn' },
       { icon: 'mdi-whatsapp', link: 'https://whatsapp.com', class: 'whatsapp-btn' },
-      { icon: 'mdi-telegram', link: 'https://telegram.org', class: 'telegram-btn' }
+      // { icon: 'mdi-telegram', link: 'https://telegram.org', class: 'telegram-btn' }
     ],
     contactInfo: [
       { 
