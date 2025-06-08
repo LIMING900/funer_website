@@ -214,8 +214,8 @@
             </span>
           </v-col>
           <v-col cols="12" md="auto" class="mt-4 mt-md-0">
-            <a href="#" class="text-caption grey--text text--lighten-1 text-decoration-none mr-4 footer-link">Privacy Policy</a>
-            <a href="#" class="text-caption grey--text text--lighten-1 text-decoration-none footer-link">Terms of Service</a>
+            <a href="/privacy-policy" class="text-caption grey--text text--lighten-1 text-decoration-none mr-4 footer-link">Privacy Policy</a>
+            <a href="/terms-of-service" class="text-caption grey--text text--lighten-1 text-decoration-none footer-link">Terms of Service</a>
           </v-col>
         </v-row>
       </v-container>
@@ -269,6 +269,85 @@
         </v-card-text>
       </v-card>
     </v-dialog>
+
+    <!-- 添加隐私政策对话框 -->
+    <v-dialog v-model="privacyDialog" max-width="800">
+      <v-card>
+        <v-card-title class="text-h5">
+          Privacy Policy
+          <v-spacer></v-spacer>
+          <v-btn icon @click="privacyDialog = false">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-card-title>
+        
+        <v-card-text class="privacy-content">
+          <p class="text-subtitle-2 mb-2">Effective Date: 1 June 2023</p>
+
+          <h3 class="text-h6 mt-4">1. Introduction</h3>
+          <p>Andy Casket Service("we," "us," or "our") respects your privacy and is committed to protecting your personal data in compliance with Singapore's <strong>Personal Data Protection Act (PDPA)</strong>. This policy explains how we collect, use, disclose, and safeguard your information when you use our website and services.</p>
+
+          <h3 class="text-h6 mt-4">2. Data We Collect</h3>
+          <p>We may collect:</p>
+          <ul>
+            <li><strong>Personal details</strong> (name, NRIC/FIN if required, contact info).</li>
+            <li><strong>Service-related data</strong> (deceased's information, death certificate, family details).</li>
+            <li><strong>Payment details</strong> (credit card/bank account for transactions).</li>
+            <li><strong>Technical data</strong> (IP address, cookies, browsing behavior).</li>
+          </ul>
+
+          <h3 class="text-h6 mt-4">3. Purpose of Collection</h3>
+          <p>Your data is used to:</p>
+          <ul>
+            <li>Provide funeral/cremation services.</li>
+            <li>Process payments and documentation.</li>
+            <li>Respond to inquiries or requests.</li>
+            <li>Comply with legal obligations (e.g., death registration).</li>
+          </ul>
+
+          <h3 class="text-h6 mt-4">4. Data Sharing</h3>
+          <p>We only disclose information to:</p>
+          <ul>
+            <li><strong>Service partners</strong> (hospitals, crematoriums, religious institutions).</li>
+            <li><strong>Legal authorities</strong> (if required by law).</li>
+            <li><strong>Trusted vendors</strong> (IT/payment processors under confidentiality agreements).</li>
+          </ul>
+
+          <h3 class="text-h6 mt-4">5. Cookies & Tracking</h3>
+          <p>We use cookies to improve website functionality. You may disable cookies via browser settings, but some features may be affected.</p>
+
+          <h3 class="text-h6 mt-4">6. Data Security & Retention</h3>
+          <ul>
+            <li>Data is secured via encryption and access controls.</li>
+            <li>Retained only as long as necessary (per legal/business needs).</li>
+          </ul>
+
+          <h3 class="text-h6 mt-4">7. Your Rights</h3>
+          <p>Under PDPA, you may:</p>
+          <ul>
+            <li>Access or correct your data.</li>
+            <li>Withdraw consent (may affect services).</li>
+            <li>Lodge complaints with Singapore's <strong>PDPC</strong> (<a href="https://www.pdpc.gov.sg" target="_blank">pdpc.gov.sg</a>).</li>
+          </ul>
+
+          <h3 class="text-h6 mt-4">8. Updates</h3>
+          <p>We may update this policy; changes will be posted here.</p>
+
+          <div class="mt-6">
+            <p><strong>Company Name:</strong> Andy Casket Service</p>
+            <p><strong>Address:</strong> [Singapore Registered Address]</p>
+            <p><strong>Email/Phone:</strong> [Insert]</p>
+          </div>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" @click="privacyDialog = false">
+            Close
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-app>
 </template>
 
@@ -290,8 +369,8 @@ export default {
       // { text: 'Gallery', to: '/gallery' }
     ],
     socialLinks: [
-      { icon: 'mdi-facebook', link: 'https://facebook.com', class: 'facebook-btn' },
-      { icon: 'mdi-instagram', link: 'https://instagram.com', class: 'instagram-btn' },
+      { icon: 'mdi-facebook', link: 'https://www.facebook.com/p/Andy-Casket-Services-安宇殯葬禮儀社-100075995673049/', class: 'facebook-btn' },
+      // { icon: 'mdi-instagram', link: 'https://instagram.com', class: 'instagram-btn' },
       { icon: 'mdi-whatsapp', link: 'https://whatsapp.com', class: 'whatsapp-btn' },
       // { icon: 'mdi-telegram', link: 'https://telegram.org', class: 'telegram-btn' }
     ],
@@ -318,6 +397,7 @@ export default {
     showContactMenu: false,
     phoneNumber: '+6588005559', // 更换为实际的电话号码
     whatsappNumber: '+6588005559', // 更换为实际的 WhatsApp 号码
+    privacyDialog: false,
   }),
   created() {
     // 检查用户是否已登录
@@ -373,6 +453,9 @@ export default {
     openWhatsApp() {
       window.open(`https://wa.me/${this.whatsappNumber}`, '_blank')
       this.showContactMenu = false
+    },
+    openPrivacyPolicy() {
+      this.privacyDialog = true;
     }
   }
 }
@@ -774,5 +857,32 @@ export default {
 .contact-option .v-list-item__subtitle {
   margin-top: 4px;
   opacity: 0.7;
+}
+
+.privacy-content {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.privacy-content h3 {
+  color: var(--v-primary-base);
+}
+
+.privacy-content ul {
+  padding-left: 20px;
+}
+
+.privacy-content li {
+  margin-bottom: 8px;
+}
+
+.privacy-content a {
+  color: var(--v-primary-base);
+  text-decoration: none;
+}
+
+.privacy-content a:hover {
+  text-decoration: underline;
 }
 </style> 

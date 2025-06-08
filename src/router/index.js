@@ -6,6 +6,8 @@ import Agent from '../views/Agent.vue'
 import Gallery from '../views/Gallery.vue'
 import Login from '../views/Login.vue'
 import Profile from '../views/Profile.vue'
+import PrivacyPolicy from '@/views/PrivacyPolicy.vue'
+import TermsOfService from '@/views/TermsOfService.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +41,16 @@ const routes = [
     path: '/profile',
     name: 'Profile',
     component: Profile
+  },
+  {
+    path: '/privacy-policy',
+    name: 'PrivacyPolicy',
+    component: PrivacyPolicy
+  },
+  {
+    path: '/terms-of-service',
+    name: 'TermsOfService',
+    component: TermsOfService
   }
 ]
 

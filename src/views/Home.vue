@@ -17,11 +17,12 @@
               Providing dignified and compassionate funeral services 24/7
             </p>
             <v-btn
-              x-large
               color="accent"
+              x-large
+              rounded
               class="mr-4"
               elevation="4"
-              rounded
+              to="/packages"
             >
               Our Services
             </v-btn>
@@ -31,6 +32,7 @@
               color="white"
               class="hero-btn"
               rounded
+              @click="showContactMenu = true"
             >
               Contact Us
             </v-btn>
@@ -38,6 +40,54 @@
         </v-row>
       </v-container>
     </v-parallax>
+
+    <v-dialog
+      v-model="showContactMenu"
+      max-width="340"
+      transition="dialog-bottom-transition"
+    >
+      <v-card class="contact-dialog">
+        <v-card-title class="headline primary white--text">
+          Contact Methods
+          <v-spacer></v-spacer>
+          <v-btn icon dark @click="showContactMenu = false">
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+        </v-card-title>
+
+        <v-card-text class="pa-6">
+          <v-list>
+            <v-list-item
+              @click="makePhoneCall"
+              class="contact-option mb-3"
+              elevation="2"
+            >
+              <v-list-item-icon>
+                <v-icon color="primary" large>mdi-phone</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title class="subtitle-1 font-weight-bold">Contact Number</v-list-item-title>
+                <v-list-item-subtitle>+65 8800 5559</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+
+            <v-list-item
+              @click="openWhatsApp"
+              class="contact-option"
+              elevation="2"
+            >
+              <v-list-item-icon>
+                <v-icon color="green" large>mdi-whatsapp</v-icon>
+              </v-list-item-icon>
+              <v-list-item-content>
+                <v-list-item-title class="subtitle-1 font-weight-bold">WhatsApp Msg</v-list-item-title>
+                <v-list-item-subtitle>+65 8800 5559</v-list-item-subtitle>
+              </v-list-item-content>
+            </v-list-item>
+          </v-list>
+        </v-card-text>
+      </v-card>
+    </v-dialog>
 
     <!-- 服务特点部分 -->
     <v-container class="features-section mt-n15">
@@ -250,7 +300,10 @@ export default {
     ],
     phoneRules: [
       v => !!v || 'Phone number is required'
-    ]
+    ],
+    showContactMenu: false,
+    phoneNumber: '+6588005559',
+    whatsappNumber: '+6588005559',
   }),
   methods: {
     async submitConsultation() {
@@ -271,6 +324,14 @@ export default {
           this.loading = false;
         }
       }
+    },
+    makePhoneCall() {
+      window.location.href = `tel:${this.phoneNumber}`
+      this.showContactMenu = false
+    },
+    openWhatsApp() {
+      window.open(`https://wa.me/${this.whatsappNumber}`, '_blank')
+      this.showContactMenu = false
     }
   }
 }
