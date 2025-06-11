@@ -302,8 +302,8 @@ export default {
       v => !!v || 'Phone number is required'
     ],
     showContactMenu: false,
-    phoneNumber: '+6588005559',
-    whatsappNumber: '+6588005559',
+    phoneNumber: '+6588115559',
+    whatsappNumber: '+6588115559',
   }),
   methods: {
     async submitConsultation() {

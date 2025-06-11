@@ -395,8 +395,8 @@ export default {
       }
     ],
     showContactMenu: false,
-    phoneNumber: '+6588005559', // 更换为实际的电话号码
-    whatsappNumber: '+6588005559', // 更换为实际的 WhatsApp 号码
+    phoneNumber: '+6588115559', // 更换为实际的电话号码
+    whatsappNumber: '+6588115559', // 更换为实际的 WhatsApp 号码
     privacyDialog: false,
   }),
   created() {
