@@ -67,7 +67,7 @@
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title class="subtitle-1 font-weight-bold">Contact Number</v-list-item-title>
-                <v-list-item-subtitle>+65 8800 5559</v-list-item-subtitle>
+                <v-list-item-subtitle>+65 8500 9891</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
 
@@ -81,7 +81,7 @@
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title class="subtitle-1 font-weight-bold">WhatsApp Msg</v-list-item-title>
-                <v-list-item-subtitle>+65 8800 5559</v-list-item-subtitle>
+                <v-list-item-subtitle>+65 8500 9891</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -302,8 +302,8 @@ export default {
       v => !!v || 'Phone number is required'
     ],
     showContactMenu: false,
-    phoneNumber: '+6588115559',
-    whatsappNumber: '+6588115559',
+    phoneNumber: '+6585009891',
+    whatsappNumber: '+6585009891',
   }),
   methods: {
     async submitConsultation() {

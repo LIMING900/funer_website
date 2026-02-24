@@ -67,7 +67,7 @@
           <div class="company-info">
             <p><strong>Company Name:</strong> Andy Casket Service</p>
             <p><strong>Address:</strong> 29 Sin Ming Dr, Singapore</p>
-            <p><strong>Email/Phone:</strong> +65 8800 5559</p>
+            <p><strong>Email/Phone:</strong> +65 8500 9891</p>
           </div>
         </v-card-text>
       </v-card>

@@ -273,8 +273,8 @@ export default {
         ]
       }
     ],
-    phoneNumber: '+6588115559',
-    whatsappNumber: '+6588115559',
+    phoneNumber: '+6585009891',
+    whatsappNumber: '+6585009891',
   }),
   computed: {
     filteredPackages() {

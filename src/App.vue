@@ -3,16 +3,13 @@
     <!-- 顶部联系信息栏 -->
     <v-system-bar color="primary" dark height="36" class="px-6">
       <v-icon small class="mr-2">mdi-phone</v-icon>
-      <span class="text-caption">24/7 Hotline: +65 8800 5559</span>
+      <span class="text-caption">24/7 Hotline: +65 8500 9891</span>
       <v-spacer></v-spacer>
       <v-icon small class="mr-2">mdi-email</v-icon>
       <span class="text-caption mr-4">contact@andycasket.com</span>
       <v-divider vertical class="mx-2"></v-divider>
-      <v-btn icon small href="https://facebook.com" target="_blank" class="social-btn">
-        <v-icon small>mdi-facebook</v-icon>
-      </v-btn>
-      <v-btn icon small href="https://instagram.com" target="_blank" class="social-btn">
-        <v-icon small>mdi-instagram</v-icon>
+      <v-btn icon small href="https://wa.me/6585009891" target="_blank" rel="noopener" class="social-btn whatsapp-btn" title="Chat on WhatsApp">
+        <v-icon small>mdi-whatsapp</v-icon>
       </v-btn>
     </v-system-bar>
 
@@ -248,7 +245,7 @@
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title class="subtitle-1 font-weight-bold">Contact Number</v-list-item-title>
-                <v-list-item-subtitle>+65 8800 5559</v-list-item-subtitle>
+                <v-list-item-subtitle>+65 8500 9891</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
 
@@ -262,7 +259,7 @@
               </v-list-item-icon>
               <v-list-item-content>
                 <v-list-item-title class="subtitle-1 font-weight-bold">WhatsApp Msg</v-list-item-title>
-                <v-list-item-subtitle>+65 8800 5559</v-list-item-subtitle>
+                <v-list-item-subtitle>+65 8500 9891</v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
           </v-list>
@@ -369,16 +366,13 @@ export default {
       // { text: 'Gallery', to: '/gallery' }
     ],
     socialLinks: [
-      { icon: 'mdi-facebook', link: 'https://www.facebook.com/p/Andy-Casket-Services-安宇殯葬禮儀社-100075995673049/', class: 'facebook-btn' },
-      // { icon: 'mdi-instagram', link: 'https://instagram.com', class: 'instagram-btn' },
-      { icon: 'mdi-whatsapp', link: 'https://whatsapp.com', class: 'whatsapp-btn' },
-      // { icon: 'mdi-telegram', link: 'https://telegram.org', class: 'telegram-btn' }
+      { icon: 'mdi-whatsapp', link: 'https://wa.me/6585009891', class: 'whatsapp-btn' }
     ],
     contactInfo: [
       { 
         icon: 'mdi-phone',
         color: 'accent',
-        title: '+65 8800 5559',
+        title: '+65 8500 9891',
         subtitle: '24/7 Hotline Available'
       },
       {
@@ -395,8 +389,8 @@ export default {
       }
     ],
     showContactMenu: false,
-    phoneNumber: '+6588115559', // 更换为实际的电话号码
-    whatsappNumber: '+6588115559', // 更换为实际的 WhatsApp 号码
+    phoneNumber: '+6585009891', // 更换为实际的电话号码
+    whatsappNumber: '+6585009891', // 更换为实际的 WhatsApp 号码
     privacyDialog: false,
   }),
   created() {
@@ -764,10 +758,7 @@ export default {
   transition: all 0.3s ease !important;
 }
 
-.facebook-btn:hover { background: #1877F2 !important; }
-.instagram-btn:hover { background: #E4405F !important; }
 .whatsapp-btn:hover { background: #25D366 !important; }
-.telegram-btn:hover { background: #0088cc !important; }
 
 .contact-item {
   transition: all 0.3s ease;

@@ -217,8 +217,8 @@ export default {
             username: this.loginForm.username,
             name: 'Adrian Tan',
             title: 'Executive Director',
-            phone: '+65 1234 5678',
-            whatsapp: '+65 8765 4321',
+            phone: '+65 8500 9891',
+            whatsapp: '+65 8500 9891',
             email: 'adrian@andycasket.com',
             address: 'Singapore'
           }
