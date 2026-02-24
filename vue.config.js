@@ -1,13 +1,12 @@
 const { defineConfig } = require('@vue/cli-service')
 
-// 若 GitHub Pages 使用子路径（如 https://xxx.github.io/funer_website/），
-// 请将 publicPath 改为 '/funer_website/'（与仓库名一致）
+// GitHub 项目页地址是 https://xxx.github.io/funer_website/，必须用子路径
 module.exports = defineConfig({
   transpileDependencies: [
     'vuetify'
   ],
   lintOnSave: false,
-  publicPath: '/',
+  publicPath: '/funer_website/',
   devServer: {
     historyApiFallback: true
   }
