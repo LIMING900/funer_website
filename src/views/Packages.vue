@@ -131,11 +131,11 @@
             ${{ selectedPackage.price }}
             <span class="text-subtitle-1 grey--text">onwards</span>
           </div>
-          <p class="text-body-1 mb-6">{{ selectedPackage.description }}</p>
+          <p class="text-body-1 mb-6 package-description">{{ selectedPackage.detailDescription || selectedPackage.description }}</p>
           
           <h3 class="text-h6 mb-4">Package Includes:</h3>
           <v-list dense>
-            <v-list-item v-for="(feature, i) in selectedPackage.features" :key="i">
+            <v-list-item v-for="(feature, i) in (selectedPackage.detailFeatures || selectedPackage.features)" :key="i">
               <v-list-item-icon>
                 <v-icon color="success">mdi-check-circle</v-icon>
               </v-list-item-icon>
@@ -217,6 +217,64 @@ export default {
           'Complete Religious Items',
           'Professional Funeral Director',
           'Photography Service'
+        ],
+        detailDescription: `5 days Taoist Funeral Package*
+
+Casket & Services
+1) Premium casket with half glass viewing 棺木
+2) Premium Limousine Hearse / Grand Traditional Hearse 灵车 / 传统灵车
+3) Manpower & Services 工人 和 运输 — Collection of deceased from hospital or home; Sending deceased back to the wake; Funeral ceremony; Booking of cremation; E Funeral notice; Ash collection services
+4) Professional embalming & makeup services 清洗化妆和防腐
+
+Wake Setup
+5) Tentage Setup (HDB Setup) 棚布，灯，桌子 和 椅子 — 18" Wake enclosure; Curtain and carpet setup; 10 round tables with 100 chairs; *10 sets of tables and chairs cover setup*; 15 Square tables; 6 Standing fans; General lighting
+6) Lanterns with surname & age inscription 灯笼
+7) Taoist Religious Setup 灵堂布置
+8) Reception Table Setup 白金桌，保险箱 白金书等等 — Safe box; Condolence book
+9) Plastic folder & stationary set 文具套
+10) Photo Enlargement Service — 6 Passport size photo 照片放大服务
+11) Flora Arrangement 桌子花 和 相片花 — 2 Deceased table; 1 Photo frame wreath
+12) Mobile Toilet 流动厕所
+
+Funeral Preparation / Ceremony
+13) Guidance during Encoffin and Funeral Day 第一天，最后一晚 和 最后一天教拜
+14) 8ft Paper house 纸屋金山银山 衣箱 甲万 ， 茶童 — Gold & Silver mountains; Paper servants; 1 Clothing chest; 1 Safe box
+15) Pearl for Deceased 珠
+16) Mourning Badges 孝布
+17) Air conditioned bus 45-Seater 巴士
+18) Cleansing Water 花水
+
+*Items not included in package*
+- Mandai Cremation Fee ($100) 火化费
+- Drinks & Fridge (Estimated $800) 冰箱水料 (Consignment)
+- Incense paper, mourning clothing, offerings and ceremonial Items ($3,500) 金纸，善堂供品，衣服，裤子，等等
+- Tentage for Prayer ($1500) 善堂棚
+- Final night Siang Teng chanting 善堂 （$2800）We uses good Siang Teng
+- Metal Cage for Burning and Labour to shift the paper products ($300) 铁笼 和员工
+- Red Packet for Staffs, Undertakers, Priest and Hearse Driver 红包
+
+*Estimated spending $18,800*
+
+Buffet not inclusive`,
+        detailFeatures: [
+          'Premium casket with half glass viewing 棺木',
+          'Premium Limousine Hearse / Grand Traditional Hearse 灵车 / 传统灵车',
+          'Manpower & Services 工人 和 运输',
+          'Professional embalming & makeup services 清洗化妆和防腐',
+          'Tentage Setup (HDB) 棚布，灯，桌子 和 椅子',
+          'Lanterns with surname & age inscription 灯笼',
+          'Taoist Religious Setup 灵堂布置',
+          'Reception Table Setup 白金桌，保险箱 白金书',
+          'Plastic folder & stationary set 文具套',
+          'Photo Enlargement Service 照片放大服务',
+          'Flora Arrangement 桌子花 和 相片花',
+          'Mobile Toilet 流动厕所',
+          'Guidance during Encoffin and Funeral Day',
+          '8ft Paper house 纸屋金山银山 衣箱 甲万 茶童',
+          'Pearl for Deceased 珠',
+          'Mourning Badges 孝布',
+          'Air conditioned bus 45-Seater 巴士',
+          'Cleansing Water 花水'
         ]
       },
       {
@@ -235,6 +293,66 @@ export default {
           'Buddhist Religious Items',
           'Professional Funeral Director',
           'Photography Service'
+        ],
+        detailDescription: `5 Days Buddhist Funeral Package
+
+五天佛教丧礼配套
+
+Casket & Services 棺木与基本服务
+1) Premium casket with half glass viewing 高级半玻璃棺木
+2) Premium Hearse / Glass Panel Hearse 高级灵车
+3) Manpower & Services 工人与运输 — Collection of deceased from hospital or home 接遗体（医院或住家）; Sending deceased back to the wake 送回灵堂; Funeral ceremony coordination 丧礼统筹安排; Booking of cremation 代订火化时间; E-Funeral notice 电子讣告; Ash collection services 代领骨灰服务
+4) Professional embalming & makeup services 专业清洗、防腐与化妆
+
+Wake Setup 灵堂布置
+5) Tentage Setup (HDB Setup) 棚布、灯光、桌椅 — 18" Wake enclosure 灵堂围布; Curtain and carpet setup 帘布与地毯; 10 round tables with 100 chairs 10张圆桌+100张椅子; 10 sets of table & chair covers 桌椅套; 15 square tables 15张方桌; 6 standing fans 6台风扇; General lighting 基本灯光设备
+6) Lanterns with surname & age inscription 姓氏与年龄灯笼
+7) Buddhist Religious Setup 佛教灵堂布置（佛像、供桌等）
+8) Reception Table Setup 白金桌布置 — Safe box 保险箱; Condolence book 白金簿
+9) Stationery set 文具套装
+10) Photo Enlargement Service 照片放大服务 — 6 passport size photos 6张护照尺寸照片
+11) Floral Arrangement 花艺布置 — 2 deceased table flowers 2组桌花; 1 photo frame wreath 1组相框花圈
+12) Mobile Toilet 流动厕所
+
+Funeral Preparation / Ceremony 仪式与准备
+13) Guidance during Encoffin & Funeral Day 封棺与出殡当天指导
+14) Buddhist Chanting Setup 佛教诵经法事安排（Based on family preference – 1 session chanting 包含一场基本诵经）
+15) Offering Table Setup 供品桌布置
+16) Mourning Badges 孝布
+17) Air-conditioned bus 45-seater 45座冷气巴士
+18) Cleansing Water 花水
+
+Items Not Included in Package 不包含项目
+• Mandai Cremation Fee ($100) 火化费
+• Drinks & Fridge (Estimated $800) 冰箱与水料
+• Additional chanting sessions (price varies) 额外诵经法事
+• Incense paper & ceremonial offerings ($2,500 – $3,500 estimated) 金纸与供品
+• Tentage for additional prayer area ($1,500) 额外善堂棚
+• Metal cage for burning & labour ($300) 烧金纸铁笼与人工
+• Red packets for staffs, priest & hearse driver 红包
+
+Estimated Spending: $16,000 – $18,000 预计总花费：$16,000 – $18,000
+
+Buffet not inclusive 不包含自助餐`,
+        detailFeatures: [
+          'Premium casket with half glass viewing 高级半玻璃棺木',
+          'Premium Hearse / Glass Panel Hearse 高级灵车',
+          'Manpower & Services 工人与运输',
+          'Professional embalming & makeup services 专业清洗、防腐与化妆',
+          'Tentage Setup (HDB) 棚布、灯光、桌椅',
+          'Lanterns with surname & age inscription 姓氏与年龄灯笼',
+          'Buddhist Religious Setup 佛教灵堂布置',
+          'Reception Table Setup 白金桌布置',
+          'Stationery set 文具套装',
+          'Photo Enlargement Service 照片放大服务',
+          'Floral Arrangement 花艺布置',
+          'Mobile Toilet 流动厕所',
+          'Guidance during Encoffin & Funeral Day',
+          'Buddhist Chanting Setup 佛教诵经法事安排',
+          'Offering Table Setup 供品桌布置',
+          'Mourning Badges 孝布',
+          'Air-conditioned bus 45-seater 巴士',
+          'Cleansing Water 花水'
         ]
       },
       {
@@ -392,6 +510,10 @@ export default {
 .package-features {
   border-radius: 8px;
   background: rgba(0,0,0,0.02);
+}
+
+.package-description {
+  white-space: pre-line;
 }
 
 @media (max-width: 960px) {
